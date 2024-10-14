@@ -4,7 +4,7 @@
     box-sizing: border-box; 
 } 
 body{
-	background:linear-gradient(to right,violet,blue);
+	background:linear-gradient(to right,rgb(130, 189, 238),rgb(79, 79, 224));
 	text-align: center;
 	color:black;
 	 font-family: sans-serif;
@@ -13,7 +13,7 @@ body{
     background-attachment: fixed; 
 }
 .footer{
-	background:linear-gradient(to right,blue,violet);
+	background:linear-gradient(to right,rgb(130, 189, 238),rgb(79, 79, 224));
 	text-align:left;
 	
 }

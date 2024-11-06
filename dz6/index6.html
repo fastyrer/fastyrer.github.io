@@ -1,0 +1,31 @@
+ <!DOCTYPE HTML5>
+ <html>
+ <head>
+<title>Кондитерская</title>
+<link rel="stylesheet" href="./css6.css">
+<script src="js1.js"></script>
+<link rel="icon" href="1.jpg">
+</head>
+ <body>
+  Цена:
+ <div id="prodPrice">100 рублей</div>
+        <p><input type="number" name="num" min="1" max="100" value="1" id="amount"></p>
+        Выберите ваш любимый торт:
+        <form>
+          <select name="prodType">
+            <option value="1">Наполеон</option>
+            <option value="2">Рыжик</option>
+            <option value="3">Картошка</option>
+          </select>
+          <div id="radios" style="display: none;">
+            <label><input type="radio" name="prodOptions" value="option1"> Посыпка</label>
+            <label><input type="radio" name="prodOptions" value="option2"> Карамель</label>
+            <label><input type="radio" name="prodOptions" value="option3"> Сливки</label>
+          </div>
+          <div id="checkboxes" style="display: block;">
+            <label><input type="checkbox" name="prop1"> Доп корж</label>
+            <label><input type="checkbox" name="prop2"> Доп наполнитель</label>
+          </div>
+        </form>
+      </body>
+        </html>

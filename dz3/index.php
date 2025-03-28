@@ -57,12 +57,13 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
-    $stmt = $db->prepare("INSERT INTO application (name, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([
-        $_POST['fio'], $_POST['phone'], $_POST['email'], $_POST['dob'], $_POST['gender'], $_POST['bio']
-    ]);
+    // Вставка заявки
+    $stmt = $db->prepare("INSERT INTO application (fio, phone, email, dob, gender, bio) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$_POST['fio'], $_POST['phone'], $_POST['email'], $_POST['dob'], $_POST['gender'], $_POST['bio']]);
 
     $app_id = $db->lastInsertId();
+
+    // Вставка языков программирования
     $stmt = $db->prepare("INSERT INTO application_languages (app_id, lang_id) VALUES (?, ?)");
     foreach ($_POST['languages'] as $lang) {
         $stmt->execute([$app_id, $lang]);

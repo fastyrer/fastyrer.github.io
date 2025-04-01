@@ -3,10 +3,10 @@ session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
 // Подключение к БД
-$user = 'u69168';
-$pass = '2021936';
-$dbname = 'u69168';
-$host = 'localhost';
+$user = 'u68806';
+$pass = '1921639';
+$dbname = 'u68806';
+$host = 'u68806.kubsu-dev.ru';
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass, [

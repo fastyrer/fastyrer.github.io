@@ -2,43 +2,47 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Форма заявки</title>
+    <title>Форма регистрации</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        form { max-width: 400px; margin: auto; }
-        label, input, select, textarea { display: block; width: 100%; margin-bottom: 10px; }
+        .error { color: red; font-size: 0.9em; }
+        .error-field { border: 1px solid red; }
     </style>
 </head>
 <body>
-    <form action="index.php" method="POST">
-        <label>ФИО: <input type="text" name="fio" required></label>
-        <label>Телефон: <input type="tel" name="phone" required></label>
-        <label>Email: <input type="email" name="email" required></label>
-        <label>Дата рождения: <input type="date" name="dob" required></label>
-        <label>Пол:
-            <input type="radio" name="gender" value="male" required> Мужской
-            <input type="radio" name="gender" value="female"> Женский
-        </label>
-        <label>Любимый язык программирования:
-            <select name="languages[]" multiple required>
-                <option value="1">Pascal</option>
-                <option value="2">C</option>
-                <option value="3">C++</option>
-                <option value="4">JavaScript</option>
-                <option value="5">PHP</option>
-                <option value="6">Python</option>
-                <option value="7">Java</option>
-                <option value="8">Haskell</option>
-                <option value="9">Clojure</option>
-                <option value="10">Prolog</option>
-                <option value="11">Scala</option>
-                <option value="12">Go</option>
-            </select>
-        </label>
-        <label>Биография: <textarea name="bio" required></textarea></label>
-        <label><input type="checkbox" name="contract" required> С контрактом ознакомлен(а)</label>
-        <input type="submit" value="Сохранить">
+    <form action="index.php" method="post">
+        <h2>Регистрация</h2>
+
+        <label for="fio">ФИО:</label>
+        <input type="text" id="fio" name="fio" value="<?= htmlspecialchars($data['fio'] ?? '') ?>" class="<?= isset($errors['fio']) ? 'error-field' : '' ?>">
+        <div class="error"><?= $errors['fio'] ?? '' ?></div>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" value="<?= htmlspecialchars($data['phone'] ?? '') ?>" class="<?= isset($errors['phone']) ? 'error-field' : '' ?>">
+        <div class="error"><?= $errors['phone'] ?? '' ?></div>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($data['email'] ?? '') ?>" class="<?= isset($errors['email']) ? 'error-field' : '' ?>">
+        <div class="error"><?= $errors['email'] ?? '' ?></div>
+
+        <label for="dob">Дата рождения:</label>
+        <input type="date" id="dob" name="dob" value="<?= htmlspecialchars($data['dob'] ?? '') ?>" class="<?= isset($errors['dob']) ? 'error-field' : '' ?>">
+        <div class="error"><?= $errors['dob'] ?? '' ?></div>
+
+        <label>Пол:</label>
+        <select name="gender">
+            <option value="male" <?= (isset($data['gender']) && $data['gender'] === 'male') ? 'selected' : '' ?>>Мужской</option>
+            <option value="female" <?= (isset($data['gender']) && $data['gender'] === 'female') ? 'selected' : '' ?>>Женский</option>
+        </select>
+        <div class="error"><?= $errors['gender'] ?? '' ?></div>
+
+        <label for="bio">Биография:</label>
+        <textarea id="bio" name="bio" class="<?= isset($errors['bio']) ? 'error-field' : '' ?>"><?= htmlspecialchars($data['bio'] ?? '') ?></textarea>
+        <div class="error"><?= $errors['bio'] ?? '' ?></div>
+
+        <label><input type="checkbox" name="contract" value="yes" <?= isset($data['contract']) ? 'checked' : '' ?>> Согласен с условиями</label>
+        <div class="error"><?= $errors['contract'] ?? '' ?></div>
+
+        <button type="submit">Сохранить</button>
     </form>
 </body>
 </html>

@@ -6,7 +6,7 @@ header('Content-Type: text/html; charset=UTF-8');
 $user = 'u68806';
 $pass = '1921639';
 $dbname = 'u68806';
-$host = 'u68806.kubsu-dev.ru';
+$host = 'localhost';
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass, [

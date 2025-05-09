@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма регистрации</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,26 +16,28 @@
         }
         form {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 350px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 360px;
         }
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
         label {
             font-weight: bold;
             display: block;
-            margin-top: 10px;
+            margin-top: 12px;
         }
         input, select, textarea {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-top: 5px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 6px;
+            box-sizing: border-box;
         }
         .gender-container {
             display: flex;
@@ -53,14 +54,26 @@
             background: #007bff;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 12px;
             cursor: pointer;
             width: 100%;
-            border-radius: 5px;
-            margin-top: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 16px;
         }
         button:hover {
             background: #0056b3;
+        }
+        .link-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .link-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .link-container a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -110,6 +123,9 @@
         </label>
 
         <button type="submit">Сохранить</button>
+        <div class="link-container">
+            <p>Уже есть логин и пароль? <a href="login.php">Войти</a></p>
+        </div>
     </form>
 </body>
 </html>
